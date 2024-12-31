@@ -1,0 +1,241 @@
+---
+title: "Working Document"
+format: html
+editor: visual
+---
+
+```{r setup}
+
+library(reticulate)
+
+```
+
+
+```{python}
+
+import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+```
+
+```{python}
+
+import wikipediaapi, wikipedia
+
+# Initialize the Wikipedia object with language and user-agent
+wiki = wikipediaapi.Wikipedia(
+    language='en', 
+    user_agent="MyWikipediaApp/1.0"
+)
+
+# Fetch a page
+search_results = wikipedia.search("Claude Shannon", results = 1)
+
+# print("Search Results:")
+# print(search_results)
+
+
+page = wiki.page(search_results[0])
+summary_text = wikipedia.summary(search_results[0], sentences = 2)
+
+
+# Extract section headers and corresponding content
+def extract_sections_with_content(page):
+    sections = []
+    def recursive_extract(sections_list, parent_title=""):
+        for section in sections_list:
+            # Combine parent and child sections for better granularity
+            full_title = f"{parent_title} - {section.title}" if parent_title else section.title
+            sections.append({"title": full_title, "content": section.text})
+            recursive_extract(section.sections, full_title)  # Process subsections recursively
+
+    recursive_extract(page.sections)
+    return sections
+
+# Get all sections and content
+sections = extract_sections_with_content(page)
+
+
+# Tokenize
+
+from nltk.tokenize import sent_tokenize
+
+def chunk_text_by_sentences(text, chunk_size, overlap):
+    # Tokenize the text into sentences
+    sentences = sent_tokenize(text)
+    
+    # Create overlapping chunks
+    chunks = [
+        " ".join(sentences[i:i + chunk_size])
+        for i in range(0, len(sentences), chunk_size - overlap)
+    ]
+    return chunks
+
+# Chunk the Wikipedia text
+from nltk import download
+download('punkt')
+download('punkt_tab')
+
+
+# Apply chunking to content of relevant sections
+chunk_size = 5  # Number of sentences per chunk
+overlap = 2     # Number of overlapping sentences
+
+# Create chunks for each relevant section
+for section in sections:
+    section["chunks"] = chunk_text_by_sentences(section["content"], chunk_size, overlap)
+
+# Flatten and format each chunk as a single string
+flattened_chunks = []
+for section in sections:
+    for chunk in section["chunks"]:
+        formatted_chunk = f"{section['title']}: {chunk}"
+        flattened_chunks.append(formatted_chunk)
+
+# Build-up approach
+filtered_chunks = []
+for chunk in flattened_chunks:
+    if len(sent_tokenize(chunk)) >= chunk_size:
+        filtered_chunks.append(chunk)
+
+
+# Example: Print the flattened strings
+for entry in filtered_chunks[1:30]:
+    print(len(sent_tokenize(entry)))
+
+
+
+```
+
+
+```{python}
+
+import faiss
+from sentence_transformers import SentenceTransformer
+import numpy as np
+
+# Initialize embedding model
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+chunk_embeddings = model.encode(filtered_chunks)
+
+# Convert embeddings to numpy array
+embeddings = np.array(chunk_embeddings)
+
+# Create FAISS index
+dimension = embeddings.shape[1]
+index = faiss.IndexFlatL2(dimension)  # L2 distance
+index.add(embeddings)
+
+# Save the index
+faiss.write_index(index, "faiss_index.bin")
+
+
+
+```
+
+```{python}
+
+from sentence_transformers import SentenceTransformer
+import faiss
+
+index = faiss.read_index("faiss_index.bin")
+
+# Initialize embedding model
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+# Query the FAISS index
+query = "Tell me about Claude Shannon's educational experience"
+query_embedding = model.encode([query])
+
+# Perform search
+k = 5  # Top-k results
+distances, indices = index.search(query_embedding, k)
+
+# Retrieve matching filtered_chunks and format for Jinja2
+closest_matches = []
+for i, idx in enumerate(indices[0]):
+    closest_matches.append({"rank": i + 1, "text": filtered_chunks[idx], "distance": distances[0][i]})
+
+print(closest_matches)
+
+```
+
+```{r}
+
+```
+
+```{python}
+
+from jinja2 import Template
+
+# Load the Quarto template
+with open("wikipedia_prompt.md", "r") as file:
+    template_content = file.read()
+
+# Create a Jinja2 template
+template = Template(template_content)
+
+# Render the template with dynamic content
+rendered_content = template.render(
+    wikipedia_summary=summary_text,
+    search_results=closest_matches,
+    user_question=query,
+)
+
+# Save the rendered content to a new .qmd file
+with open("query.md", "w") as output_file:
+    output_file.write(rendered_content)
+
+print("Report generated: query.md")
+
+
+
+
+```
+
+```{python}
+
+import os
+import keyring
+from chatlas import ChatAnthropic
+
+# Load the MD content
+md_file_path = "query.md"
+with open(md_file_path, "r") as file:
+    query_content = file.read()
+
+# Initialize the ChatAnthropic client
+chat = ChatAnthropic(api_key=keyring.get_password("anthropic", "api_key"), system_prompt = query_content)
+
+chat.app()
+
+# Send the prompt to the Anthropic API
+
+# response = chat.chat(query_content)
+
+
+
+# print(response.get('completion', '').strip())
+# 
+# # Save the rendered content to a new .qmd file
+# with open("response.md", "w") as output_file:
+#     output_file.write(response)
+# 
+# print("Report generated: response.md")
+
+
+```
+
+
+
+
+
+```{python}
+# 
+# for name in dir():
+#     if not name.startswith('_'):  # Avoid deleting built-in names
+#         del globals()[name]
+
+```
+
+
