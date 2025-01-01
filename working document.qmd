@@ -10,7 +10,6 @@ library(reticulate)
 
 ```
 
-
 ```{python}
 
 import os
@@ -105,7 +104,6 @@ for entry in filtered_chunks[1:30]:
 
 
 ```
-
 
 ```{python}
 
@@ -226,10 +224,6 @@ chat.app()
 
 ```
 
-
-
-
-
 ```{python}
 # 
 # for name in dir():
@@ -237,5 +231,3 @@ chat.app()
 #         del globals()[name]
 
 ```
-
-

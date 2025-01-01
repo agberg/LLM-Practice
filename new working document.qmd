@@ -4,13 +4,6 @@ format: html
 editor: visual
 ---
 
-```{r setup}
-
-library(reticulate)
-
-```
-
-
 ```{python}
 
 import os
@@ -19,176 +12,419 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 ```{python}
 
+import sqlite3
+from datetime import datetime
+
+def initialize_page_tracker(db_path="wikipedia_pages.db"):
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS processed_pages (
+            title TEXT PRIMARY KEY,
+            start_index INTEGER,
+            end_index INTEGER,
+            timestamp TEXT DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+    conn.commit()
+    return conn
+
+def is_page_processed(conn, title):
+    if not isinstance(title, str):
+        raise ValueError(f"Invalid title: {title}. Title must be a string.")
+    cursor = conn.cursor()
+    cursor.execute("SELECT 1 FROM processed_pages WHERE title = ?", (title,))
+    return cursor.fetchone() is not None
+
+
+def add_processed_page(conn, title, start_index, end_index):
+    timestamp = datetime.now().isoformat()
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT OR REPLACE INTO processed_pages (title, start_index, end_index, timestamp) 
+        VALUES (?, ?, ?, ?)
+    """, (title, start_index, end_index, timestamp))
+    conn.commit()
+
+def remove_processed_page(conn, title):
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM processed_pages WHERE title = ?", (title,))
+    conn.commit()
+
+
+```
+
+```{python}
+
+
+
 import wikipediaapi, wikipedia
-
-# Initialize the Wikipedia object with language and user-agent
-wiki = wikipediaapi.Wikipedia(
-    language='en', 
-    user_agent="MyWikipediaApp/1.0"
-)
-
-# Fetch a page
-search_results = wikipedia.search("Claude Shannon", results = 1)
-
-# print("Search Results:")
-# print(search_results)
-
-
-page = wiki.page(search_results[0])
-summary_text = wikipedia.summary(search_results[0], sentences = 2)
-
-
-# Extract section headers and corresponding content
-def extract_sections_with_content(page):
-    sections = []
-    def recursive_extract(sections_list, parent_title=""):
-        for section in sections_list:
-            # Combine parent and child sections for better granularity
-            full_title = f"{parent_title} - {section.title}" if parent_title else section.title
-            sections.append({"title": full_title, "content": section.text})
-            recursive_extract(section.sections, full_title)  # Process subsections recursively
-
-    recursive_extract(page.sections)
-    return sections
-
-# Get all sections and content
-sections = extract_sections_with_content(page)
-
-
-# Tokenize
-
 from nltk.tokenize import sent_tokenize
+from sentence_transformers import SentenceTransformer
+import faiss
+import numpy as np
+from nltk import download
+import pickle
+import os
 
-def chunk_text_by_sentences(text, chunk_size, overlap):
-    # Tokenize the text into sentences
-    sentences = sent_tokenize(text)
+# Ensure NLTK data is downloaded
+download("punkt")
+
+import pickle
+import os
+
+def save_chunks(new_chunks, file_path="chunks.pkl"):
+    """
+    Append new chunks to the existing pickle file or create a new one.
     
-    # Create overlapping chunks
-    chunks = [
-        " ".join(sentences[i:i + chunk_size])
-        for i in range(0, len(sentences), chunk_size - overlap)
+    Parameters:
+        new_chunks (list): The list of new chunks to append.
+        file_path (str): Path to the pickle file.
+    """
+    # Load existing chunks if the file exists
+    if os.path.exists(file_path):
+        with open(file_path, "rb") as f:
+            existing_chunks = pickle.load(f)
+        print(f"Loaded {len(existing_chunks)} existing chunks.")
+    else:
+        existing_chunks = []
+        print("No existing chunks found. Creating a new file.")
+
+    # Combine the new and existing chunks
+    updated_chunks = existing_chunks + new_chunks
+
+    # Save the updated list back to the file
+    with open(file_path, "wb") as f:
+        pickle.dump(updated_chunks, f)
+    print(f"Saved {len(new_chunks)} new chunks. Total chunks: {len(updated_chunks)}")
+
+
+def preprocess_and_append_wikipedia_page(
+    page_title_input, 
+    index_file="faiss_index.bin", 
+    chunks_file="chunks.pkl", 
+    db_path="wikipedia_pages.db", 
+    overwrite=False
+):
+    conn = initialize_page_tracker(db_path)
+
+    # Search for the closest Wikipedia page title
+    page_title = wikipedia.search(page_title_input, results=1)[0]
+    print(f"Working with '{page_title}'")
+    
+
+    # Check if the page is already processed
+    if is_page_processed(conn, page_title) and not overwrite:
+        print(f"Page '{page_title}' is already processed. Skipping...")
+        conn.close()
+        return ("Done", "Done")
+
+    # If overwriting, remove the page's embeddings
+    if is_page_processed(conn, page_title) and overwrite:
+        print(f"Overwriting page '{page_title}'...")
+        index = faiss.read_index(index_file) if os.path.exists(index_file) else None
+        if index:
+            cursor = conn.cursor()
+            cursor.execute("SELECT start_index, end_index FROM processed_pages WHERE title = ?", (page_title,))
+            range_data = cursor.fetchone()
+            if range_data:
+                start_index, end_index = range_data
+                embeddings = index.reconstruct_n(0, index.ntotal)
+                new_embeddings = np.delete(embeddings, np.arange(start_index, end_index + 1), axis=0)
+                index = faiss.IndexFlatL2(new_embeddings.shape[1])
+                index.add(new_embeddings)
+                faiss.write_index(index, index_file)
+            remove_processed_page(conn, page_title)
+
+    # Fetch and process Wikipedia content
+    wiki = wikipediaapi.Wikipedia(language="en", user_agent="MyWikipediaApp/1.0")
+    page = wiki.page(page_title)
+    if not page.exists():
+        raise ValueError(f"Page '{page_title}' does not exist!")
+
+    def extract_sections_with_content(page):
+        sections = []
+        def recursive_extract(sections_list, parent_title=""):
+            for section in sections_list:
+                full_title = f"{page_title} - {parent_title} - {section.title}" if parent_title else f"{page_title} - {section.title}"
+                sections.append({"title": full_title, "content": section.text})
+                recursive_extract(section.sections, full_title)
+        recursive_extract(page.sections)
+        return sections
+
+    def chunk_text_by_sentences(text, chunk_size=5, overlap=2):
+        sentences = sent_tokenize(text)
+        chunks = [
+            " ".join(sentences[i:i + chunk_size])
+            for i in range(0, len(sentences), chunk_size - overlap)
+        ]
+        return chunks
+
+    sections = extract_sections_with_content(page)
+    flattened_chunks = [
+        f"{section['title']}: {chunk}"
+        for section in sections
+        for chunk in chunk_text_by_sentences(section["content"])
     ]
+    
+    # Filter chunks to include only those with enough sentences
+    filtered_chunks = []
+    for chunk in flattened_chunks:
+        if len(sent_tokenize(chunk)) >= 5:  # Use your desired `chunk_size`
+            filtered_chunks.append(chunk)
+
+    print(f"Filtered {len(flattened_chunks) - len(filtered_chunks)} chunks. Remaining: {len(filtered_chunks)}")
+
+    # Embed the chunks and append to FAISS index
+    model = SentenceTransformer("all-MiniLM-L6-v2")
+    chunk_embeddings = np.array(model.encode(filtered_chunks))
+
+    if os.path.exists(index_file):
+        index = faiss.read_index(index_file)
+    else:
+        index = faiss.IndexFlatL2(chunk_embeddings.shape[1])
+
+    start_index = index.ntotal
+    index.add(chunk_embeddings)
+    end_index = index.ntotal - 1
+
+    # Save the FAISS index and updated chunks
+    faiss.write_index(index, index_file)
+    save_chunks(filtered_chunks, chunks_file)
+    add_processed_page(conn, page_title, start_index, end_index)
+
+    conn.close()
+    return index, filtered_chunks
+
+
+
+
+```
+
+```{python}
+def query_wikipedia_index(index, flattened_chunks, query, top_k=5):
+    model = SentenceTransformer("all-MiniLM-L6-v2")
+    query_embedding = model.encode([query])
+
+    distances, indices = index.search(query_embedding, top_k)
+    results = [{"rank": i + 1, "text": flattened_chunks[idx], "distance": distances[0][i]}
+               for i, idx in enumerate(indices[0])]
+    return results
+
+```
+
+```{python}
+def print_all_pages(conn):
+    conn = conn
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM processed_pages")
+    rows = cursor.fetchall()
+    
+    if not rows:
+        print("No entries found in the 'processed_pages' table.")
+    else:
+        print("Processed Wikipedia Pages:")
+        for row in rows:
+            print(f"Title: {row[0]}, Start Index: {row[1]}, End Index: {row[2]}, Timestamp: {row[3]}")
+
+    conn.close()
+
+```
+
+```{python}
+
+index, chunks = preprocess_and_append_wikipedia_page("Claude Shannon")
+index, chunks = preprocess_and_append_wikipedia_page("Daniel Hillis")
+index, chunks = preprocess_and_append_wikipedia_page("Information Theory")
+index, chunks = preprocess_and_append_wikipedia_page("Walmart")
+index, chunks = preprocess_and_append_wikipedia_page("Amazon")
+index, chunks = preprocess_and_append_wikipedia_page("Omnichannel Retail")
+index, chunks = preprocess_and_append_wikipedia_page("Behavioral Economics")
+index, chunks = preprocess_and_append_wikipedia_page("Athleisure")
+index, chunks = preprocess_and_append_wikipedia_page("Social Commerce")
+index, chunks = preprocess_and_append_wikipedia_page("Digital Economy")
+index, chunks = preprocess_and_append_wikipedia_page("E-Commerce in China")
+index, chunks = preprocess_and_append_wikipedia_page("Flipkart")
+index, chunks = preprocess_and_append_wikipedia_page("Digital Transformation")
+index, chunks = preprocess_and_append_wikipedia_page("David Bowie")
+index, chunks = preprocess_and_append_wikipedia_page("David Byrne")
+index, chunks = preprocess_and_append_wikipedia_page("Wayne Coyne")
+index, chunks = preprocess_and_append_wikipedia_page("Eric Hoffer")
+
+```
+
+```{python}
+
+import faiss
+import pickle
+import os
+
+def load_faiss_index(index_file="faiss_index.bin"):
+    """
+    Load the FAISS index from a file.
+    
+    Parameters:
+        index_file (str): Path to the FAISS index file.
+    
+    Returns:
+        faiss.Index: The loaded FAISS index.
+    """
+    if not os.path.exists(index_file):
+        raise FileNotFoundError(f"FAISS index file '{index_file}' not found.")
+    
+    index = faiss.read_index(index_file)
+    print(f"FAISS index loaded from {index_file}")
+    return index
+
+def load_chunks(chunks_file="chunks.pkl"):
+    """
+    Load the flattened chunks from a file.
+    
+    Parameters:
+        chunks_file (str): Path to the chunks file.
+    
+    Returns:
+        list: The list of text chunks.
+    """
+    if not os.path.exists(chunks_file):
+        raise FileNotFoundError(f"Chunks file '{chunks_file}' not found.")
+    
+    with open(chunks_file, "rb") as f:
+        chunks = pickle.load(f)
+    print(f"Chunks loaded from {chunks_file}")
     return chunks
 
-# Chunk the Wikipedia text
-from nltk import download
-download('punkt')
-download('punkt_tab')
+# Example Usage
+try:
+    index = load_faiss_index("faiss_index.bin")
+    chunks = load_chunks("chunks.pkl")
+    print(f"Loaded FAISS index and {len(chunks)} chunks.")
+except FileNotFoundError as e:
+    print(e)
 
 
-# Apply chunking to content of relevant sections
-chunk_size = 5  # Number of sentences per chunk
-overlap = 2     # Number of overlapping sentences
+```
 
-# Create chunks for each relevant section
-for section in sections:
-    section["chunks"] = chunk_text_by_sentences(section["content"], chunk_size, overlap)
+```{python}
 
-# Flatten and format each chunk as a single string
-flattened_chunks = []
-for section in sections:
-    for chunk in section["chunks"]:
-        formatted_chunk = f"{section['title']}: {chunk}"
-        flattened_chunks.append(formatted_chunk)
+index = load_faiss_index("faiss_index.bin")
+chunks = load_chunks("chunks.pkl")
 
-# Build-up approach
-filtered_chunks = []
-for chunk in flattened_chunks:
-    if len(sent_tokenize(chunk)) >= chunk_size:
-        filtered_chunks.append(chunk)
+results = query_wikipedia_index(index, chunks, "What are the basics of Information Theory?", top_k = 5)
+for result in results:
+    print(f"Rank {result['rank']}: {result['text']} (Distance: {result['distance']})")
 
+conn = initialize_page_tracker()
+print_all_pages(conn)
 
-# Example: Print the flattened strings
-for entry in filtered_chunks[1:30]:
-    print(len(sent_tokenize(entry)))
 
 
 
 ```
 
-
 ```{python}
 
+import pickle
 import faiss
-from sentence_transformers import SentenceTransformer
 import numpy as np
+from nltk.tokenize import sent_tokenize
 
-# Initialize embedding model
-model = SentenceTransformer('all-MiniLM-L6-v2')
+def clear_short_chunks(chunks_file="chunks.pkl", index_file="faiss_index.bin", chunk_size=5):
+    """
+    Removes chunks that are too short from the pickle file and FAISS index.
+    
+    Parameters:
+        chunks_file (str): Path to the pickle file storing chunks.
+        index_file (str): Path to the FAISS index file.
+        chunk_size (int): Minimum number of sentences required in a chunk.
+    
+    Returns:
+        None
+    """
+    # Load the chunks
+    with open(chunks_file, "rb") as f:
+        chunks = pickle.load(f)
+    
+    # Load the FAISS index
+    index = faiss.read_index(index_file)
+    all_embeddings = index.reconstruct_n(0, index.ntotal)
+    
+    # Filter the chunks and corresponding embeddings
+    filtered_chunks = []
+    filtered_embeddings = []
 
-chunk_embeddings = model.encode(filtered_chunks)
+    for i, chunk in enumerate(chunks):
+        if len(sent_tokenize(chunk)) >= chunk_size:
+            filtered_chunks.append(chunk)
+            filtered_embeddings.append(all_embeddings[i])
+    
+    # Convert embeddings back to a NumPy array
+    filtered_embeddings = np.array(filtered_embeddings)
+    
+    # Rebuild the FAISS index
+    if len(filtered_embeddings) > 0:
+        dimension = filtered_embeddings.shape[1]
+        new_index = faiss.IndexFlatL2(dimension)
+        new_index.add(filtered_embeddings)
+    else:
+        new_index = faiss.IndexFlatL2(1)  # Create an empty index if no chunks remain
+    
+    # Save the updated chunks and FAISS index
+    with open(chunks_file, "wb") as f:
+        pickle.dump(filtered_chunks, f)
+    faiss.write_index(new_index, index_file)
+    
+    print(f"Filtered out {len(chunks) - len(filtered_chunks)} too-short chunks.")
+    print(f"Updated chunks saved to {chunks_file}.")
+    print(f"Updated FAISS index saved to {index_file}.")
 
-# Convert embeddings to numpy array
-embeddings = np.array(chunk_embeddings)
-
-# Create FAISS index
-dimension = embeddings.shape[1]
-index = faiss.IndexFlatL2(dimension)  # L2 distance
-index.add(embeddings)
-
-# Save the index
-faiss.write_index(index, "faiss_index.bin")
-
-
+clear_short_chunks()
 
 ```
 
 ```{python}
 
-from sentence_transformers import SentenceTransformer
-import faiss
-
-index = faiss.read_index("faiss_index.bin")
-
-# Initialize embedding model
-model = SentenceTransformer('all-MiniLM-L6-v2')
-
-# Query the FAISS index
-query = "Tell me about Claude Shannon's educational experience"
-query_embedding = model.encode([query])
-
-# Perform search
-k = 5  # Top-k results
-distances, indices = index.search(query_embedding, k)
-
-# Retrieve matching filtered_chunks and format for Jinja2
-closest_matches = []
-for i, idx in enumerate(indices[0]):
-    closest_matches.append({"rank": i + 1, "text": filtered_chunks[idx], "distance": distances[0][i]})
-
-print(closest_matches)
-
-```
-
-```{r}
-
-```
-
-```{python}
-
-from jinja2 import Template
-
-# Load the Quarto template
-with open("wikipedia_prompt.md", "r") as file:
-    template_content = file.read()
-
-# Create a Jinja2 template
-template = Template(template_content)
-
-# Render the template with dynamic content
-rendered_content = template.render(
-    wikipedia_summary=summary_text,
-    search_results=closest_matches,
-    user_question=query,
-)
-
-# Save the rendered content to a new .qmd file
-with open("query.md", "w") as output_file:
-    output_file.write(rendered_content)
-
-print("Report generated: query.md")
-
-
+# import faiss
+# import numpy as np
+# 
+# def remove_first_n_entries_from_faiss(index, n):
+#     """
+#     Remove the first n entries from a FAISS index by rebuilding it.
+#     
+#     Parameters:
+#         index (faiss.Index): The original FAISS index.
+#         n (int): The number of entries to remove from the beginning.
+#     
+#     Returns:
+#         faiss.Index: The updated FAISS index with the first n entries removed.
+#     """
+#     if n >= index.ntotal:
+#         raise ValueError(f"Cannot remove {n} entries; the index only contains {index.ntotal} entries.")
+# 
+#     # Reconstruct all embeddings
+#     all_embeddings = index.reconstruct_n(0, index.ntotal)
+#     
+#     # Exclude the first n embeddings
+#     updated_embeddings = all_embeddings[n:]
+#     
+#     # Create a new FAISS index
+#     dimension = updated_embeddings.shape[1]
+#     new_index = faiss.IndexFlatL2(dimension)
+#     new_index.add(updated_embeddings)
+#     
+#     print(f"Removed the first {n} entries. New index contains {new_index.ntotal} entries.")
+#     return new_index
+# 
+# # Example Usage
+# # Load the original FAISS index
+# index = faiss.read_index("faiss_index.bin")
+# 
+# # Remove the first 75 entries
+# new_index = remove_first_n_entries_from_faiss(index, 75)
+# 
+# # Save the updated FAISS index
+# faiss.write_index(new_index, "faiss_index.bin")
 
 
 ```
@@ -196,46 +432,236 @@ print("Report generated: query.md")
 ```{python}
 
 import os
+from typing import List
+import sqlite3
 import keyring
-from chatlas import ChatAnthropic
-
-# Load the MD content
-md_file_path = "query.md"
-with open(md_file_path, "r") as file:
-    query_content = file.read()
-
-# Initialize the ChatAnthropic client
-chat = ChatAnthropic(api_key=keyring.get_password("anthropic", "api_key"), system_prompt = query_content)
-
-chat.app()
-
-# Send the prompt to the Anthropic API
-
-# response = chat.chat(query_content)
+import openai
+from pydantic import BaseModel, Field, ConfigDict
+from chatlas import ChatAnthropic, Tool
+from sentence_transformers import SentenceTransformer
+import faiss
+import numpy as np
+import logging
 
 
 
-# print(response.get('completion', '').strip())
-# 
-# # Save the rendered content to a new .qmd file
-# with open("response.md", "w") as output_file:
-#     output_file.write(response)
-# 
-# print("Report generated: response.md")
+# Enable logging
+logging.basicConfig(
+    filename="tool_usage.log",  # Log file name
+    level=logging.INFO,         # Log level
+    format="%(asctime)s - %(levelname)s - %(message)s"  # Log format
+)
+
+# # Wrap the tool with logging
+# def log_tool_usage(func):
+#     def wrapper(*args, **kwargs):
+#         logging.info(f"Tool called: {func.__name__}")
+#         logging.info(f"Arguments: {args}, {kwargs}")
+#         result = func(*args, **kwargs)
+#         logging.info(f"Result: {result}")
+#         return result
+#     return wrapper
+  
+
+# Initialize database and load indexed subjects
+def get_indexed_subjects(db_path: str) -> List[str]:
+    """
+    Fetch indexed subjects from the SQLite database.
+
+    Args:
+        db_path (str): Path to the SQLite database.
+
+    Returns:
+        List[str]: List of indexed subject titles.
+    """
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    cursor.execute("SELECT title FROM processed_pages")
+    rows = cursor.fetchall()
+    conn.close()
+    return [row[0] for row in rows]
+
+
+
+
+# Define the Pydantic model for the input
+class QueryWikipediaInput(BaseModel):
+    query: str = Field(..., description="The user's question or query.")
+    chunks_path: str = Field(..., description="Path to the pickled file containing text chunks.")
+    top_k: int = Field(5, description="The number of most relevant results to retrieve.")
+    index_path: str = Field(..., description="Path to the serialized FAISS index.")
+    db_path: str = Field(..., description="Path to the SQLite database with indexed subjects.")
+
+    # Allow arbitrary types in the model
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
+# Process the user's input to construct the right information to query the tool
+def process_user_input(user_query: str) -> str:
+    """
+    Processes the user query, ensuring it is within the indexed subjects, and invokes the tool if applicable.
+
+    Args:
+        user_query (str): The user's input query.
+
+    Returns:
+        str: The response generated by the tool or an appropriate error message.
+    """
+
+
+    db_path = "wikipedia_pages.db"
+    index_path = "faiss_index.bin"
+    chunks_path = "chunks.pkl"
+
+    try:
+        # Construct the QueryWikipediaInput object
+        tool_input = QueryWikipediaInput(query=user_query, chunks_path = chunks_path, top_k = 6, index_path = index_path, db_path=db_path)
+        # Call the tool function
+        response = query_wikipedia_tool(tool_input)
+        return response
+    except Exception as e:
+        return f"An error occurred: {str(e)}"
+
+
+
+def query_wikipedia_tool(input_data: QueryWikipediaInput) -> str:
+    """
+    Query the FAISS index for relevant information on Wikipedia topics.
+
+    Parameters:
+        input_data (QueryWikipediaInput): Validated input data including query, chunks, FAISS index, and top_k.
+
+    Returns:
+        str: A formatted string containing the top results or a message if no results are found.
+    """
+    # Extract validated inputs
+    query = input_data.query
+    logging.info(f"Received query: {query}")
+
+    # Load the pickled chunks
+    with open(input_data.chunks_path, 'rb') as f:
+        chunks = pickle.load(f)
+    logging.info(f"Loaded {len(chunks)} chunks from {input_data.chunks_path}.")
+    logging.debug(f"Sample chunk: {chunks[0] if chunks else 'No chunks available.'}")
+
+    # Validate that chunks is a list of strings
+    if not isinstance(chunks, list) or not all(isinstance(chunk, str) for chunk in chunks):
+        raise ValueError("Chunks must be a list of strings.")
+
+    top_k = input_data.top_k
+    index = faiss.read_index(input_data.index_path)
+    logging.info(f"Loaded FAISS index from {input_data.index_path}.")
+    logging.info("Loaded SentenceTransformer model: all-MiniLM-L6-v2.")
+
+    # Load the embeddings model
+    model = SentenceTransformer("all-MiniLM-L6-v2")
+
+    # Encode the query to get the embedding
+    query_embedding = model.encode([query])
+    logging.debug(f"Query embedding shape: {query_embedding.shape}")
+
+    # Perform FAISS search
+    distances, indices = index.search(query_embedding, top_k)
+    logging.info(f"FAISS search distances: {distances[0]}")
+    logging.info(f"FAISS search indices: {indices[0]}")
+
+    # Format the results using the actual chunks
+    results = []
+    for i, idx in enumerate(indices[0]):
+        logging.debug(f"Result {i+1}: Distance={distances[0][i]:.4f}, Index={idx}")
+        if 0 <= idx < len(chunks):  # Ensure the index is within bounds
+            chunk_text = chunks[idx]
+            results.append(f"Rank {i+1}: {chunk_text} (Distance: {distances[0][i]:.4f})")
+        else:
+            results.append(f"Rank {i+1}: [Missing chunk for index {idx}]")
+
+    # Respond based on the results
+    if results:
+        logging.info(f"Returning {len(results)} results to the query.")
+        return "\n".join(results)
+    else:
+        logging.info("No results found; returning fallback response.")
+        return "I really don't see anything on that topic in the indexed Wikipedia content."
+
+
+
+
+
+
+# Initialize ChatAnthropic client
+chat = ChatAnthropic(api_key=keyring.get_password("anthropic", "api_key"))
+
+# Register the tool with ChatAnthropic
+chat.register_tool(process_user_input)
+
+# Prepare the system prompt
+indexed_subjects = get_indexed_subjects(db_path = "wikipedia_pages.db")
+indexed_subjects_text = "\n".join(indexed_subjects) if indexed_subjects else "No subjects indexed yet."
+
+system_prompt = f"""
+You are an expert assistant with access to a specialized Wikipedia search tool. This tool retrieves information from a prebuilt FAISS index of specific Wikipedia content.
+
+The currently indexed subjects are:
+{indexed_subjects_text}
+
+Guidelines:
+1. If a user asks a question that is closely or tangentially related to the indexed subjects, use the search tool to find and provide relevant information. Be transparent about the specific search you are performing, e.g., "Let me do a search for 'Danny Hillis favorite food'." 
+2. Always start your response grounded in the information retrieved from the indexed content. Clearly indicate when you are presenting information from the tool versus when you are applying your own reasoning or logic.
+3. If the question is entirely unrelated to the indexed subjects, respond with something like: "I really don't see anything on that topic in the indexed Wikipedia content." Suggest possible related topics, if appropriate, and explain your reasoning.
+4. You may use your creativity and broader knowledge to enhance responses **after** you have presented information from the indexed content. Ensure that you clearly differentiate grounded content from logical extensions or personal reasoning.
+5. Avoid introducing yourself as capable of answering any question. Be explicit that your expertise is limited to the information in the indexed content but emphasize that you will use your reasoning to interpret queries flexibly and creatively.
+6. If you think there may be ways to adjust or interpret the question to answer a related topic using the information in the context, feel free to do so. Be transparent about your logic and explain the adjustments or connections you are making.
+7. Make some suggestions about interesting next things I could ask for.  Rely on your own knowledge and creativity here - your job is to guide me to smarter and more interesting things I can learn about the topics you have special knowlege about.
+
+Remember to aim for clarity, transparency, and grounded responses while creatively enhancing your assistance when appropriate.
+"""
+
+# Set the system prompt
+chat.system_prompt = system_prompt
+
+
+
 
 
 ```
-
-
-
-
 
 ```{python}
-# 
-# for name in dir():
-#     if not name.startswith('_'):  # Avoid deleting built-in names
-#         del globals()[name]
+# Start the chatbot
+chat.app()
+```
+
+```{python}
+# Example: Accessing chat history
+
+chat.export(filename = "chat_history.md", overwrite = True, include = 'all', include_system_prompt = True)
+
 
 ```
 
+```{python}
 
+input_data = QueryWikipediaInput(
+    query="What is the capital of France?",
+    index_path="faiss_index.bin",
+    chunks_path="chunks.pkl",
+    top_k=3
+)
+
+query_wikipedia_tool(input_data)
+
+
+```
+
+```{python}
+
+process_user_input("Connection machins")
+
+```
+
+```{python}
+
+from pprint import pprint
+
+pprint(chat._tools)  # Pretty-print the dictionary for clarity
+
+
+```
