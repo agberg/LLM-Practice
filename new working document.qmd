@@ -385,59 +385,13 @@ clear_short_chunks()
 
 ```{python}
 
-# import faiss
-# import numpy as np
-# 
-# def remove_first_n_entries_from_faiss(index, n):
-#     """
-#     Remove the first n entries from a FAISS index by rebuilding it.
-#     
-#     Parameters:
-#         index (faiss.Index): The original FAISS index.
-#         n (int): The number of entries to remove from the beginning.
-#     
-#     Returns:
-#         faiss.Index: The updated FAISS index with the first n entries removed.
-#     """
-#     if n >= index.ntotal:
-#         raise ValueError(f"Cannot remove {n} entries; the index only contains {index.ntotal} entries.")
-# 
-#     # Reconstruct all embeddings
-#     all_embeddings = index.reconstruct_n(0, index.ntotal)
-#     
-#     # Exclude the first n embeddings
-#     updated_embeddings = all_embeddings[n:]
-#     
-#     # Create a new FAISS index
-#     dimension = updated_embeddings.shape[1]
-#     new_index = faiss.IndexFlatL2(dimension)
-#     new_index.add(updated_embeddings)
-#     
-#     print(f"Removed the first {n} entries. New index contains {new_index.ntotal} entries.")
-#     return new_index
-# 
-# # Example Usage
-# # Load the original FAISS index
-# index = faiss.read_index("faiss_index.bin")
-# 
-# # Remove the first 75 entries
-# new_index = remove_first_n_entries_from_faiss(index, 75)
-# 
-# # Save the updated FAISS index
-# faiss.write_index(new_index, "faiss_index.bin")
-
-
-```
-
-```{python}
-
 import os
 from typing import List
 import sqlite3
 import keyring
 import openai
 from pydantic import BaseModel, Field, ConfigDict
-from chatlas import ChatAnthropic, Tool
+from chatlas import ChatAnthropic, ChatOpenAI, Tool
 from sentence_transformers import SentenceTransformer
 import faiss
 import numpy as np
@@ -588,7 +542,11 @@ def query_wikipedia_tool(input_data: QueryWikipediaInput) -> str:
 
 
 # Initialize ChatAnthropic client
-chat = ChatAnthropic(api_key=keyring.get_password("anthropic", "api_key"))
+# chat = ChatAnthropic(api_key=keyring.get_password("anthropic", "api_key"), model="claude-3-5-haiku-20241022")
+chat = ChatOpenAI(
+  api_key=keyring.get_password("openai", "api_key"), 
+  model="gpt-4o-mini")
+
 
 # Register the tool with ChatAnthropic
 chat.register_tool(process_user_input)
@@ -613,6 +571,8 @@ Guidelines:
 7. Make some suggestions about interesting next things I could ask for.  Rely on your own knowledge and creativity here - your job is to guide me to smarter and more interesting things I can learn about the topics you have special knowlege about.
 
 Remember to aim for clarity, transparency, and grounded responses while creatively enhancing your assistance when appropriate.
+
+Be concise.  Style yourself on Eric Hoffer and EB White styles.  Write clearly and simply, favoring brevity. Prioritize the needs of your audience, avoiding unnecessary words and overcomplication. Use active voice, concrete details, and a natural, conversational tone to engage and inform effectively."
 """
 
 # Set the system prompt
@@ -626,7 +586,11 @@ chat.system_prompt = system_prompt
 
 ```{python}
 # Start the chatbot
-chat.app()
+chat.app(
+  kwargs={
+        "max_tokens": 100,      # Limits the response length
+    }
+)
 ```
 
 ```{python}
@@ -663,5 +627,47 @@ from pprint import pprint
 
 pprint(chat._tools)  # Pretty-print the dictionary for clarity
 
+
+```
+
+```{python}
+
+# Retrieve the full conversation history
+full_history = chat.get_turns()
+
+def get_recent_turns(turns, max_tokens=500):
+    recent_turns = []
+    total_tokens = 0
+
+    # Iterate over turns in reverse order (from latest to earliest)
+    for turn in reversed(turns):
+        turn_tokens = len(turn.user_input.split()) + len(turn.assistant_response.split())
+        if total_tokens + turn_tokens <= max_tokens:
+            recent_turns.insert(0, turn)  # Insert at the beginning to maintain order
+            total_tokens += turn_tokens
+        else:
+            break
+
+    return recent_turns
+
+# Apply the sliding window function
+limited_history = get_recent_turns(full_history)
+
+# Use the limited history for the next chat input
+response = chat.chat("what's the beginning part of your information", turns=limited_history)
+
+
+
+
+
+```
+
+```{python}
+
+import anthropic
+
+client = anthropic.Anthropic(api_key=keyring.get_password("anthropic", "api_key"))
+
+client.models.list(limit=20)
 
 ```

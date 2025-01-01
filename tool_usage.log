@@ -1,0 +1,586 @@
+2025-01-01 11:33:26,114 - INFO - Defaulting to `model = 'claude-3-5-sonnet-latest'`.
+2025-01-01 11:33:41,084 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 11:33:42,241 - INFO - Provider 'Anthropic' generated a response of 96 tokens from an input of 935 tokens.
+2025-01-01 11:33:42,248 - INFO - Received query: Danny Hillis background and contributions
+2025-01-01 11:33:42,250 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 11:33:42,252 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 11:33:42,252 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 11:33:42,255 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:33:42,255 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:33:43,369 - INFO - FAISS search distances: [0.977806  1.1376199 1.256192  1.2824508 1.3210964 1.4076614]
+2025-01-01 11:33:43,370 - INFO - FAISS search indices: [ 52  54 803  53  60 802]
+2025-01-01 11:33:43,370 - INFO - Returning 6 results to the query.
+2025-01-01 11:33:45,060 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 11:33:45,581 - INFO - Provider 'Anthropic' generated a response of 63 tokens from an input of 2053 tokens.
+2025-01-01 11:33:45,581 - INFO - Received query: David Bowie career highlights
+2025-01-01 11:33:45,584 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 11:33:45,585 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 11:33:45,585 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 11:33:45,587 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:33:45,587 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:33:46,672 - INFO - FAISS search distances: [0.60983706 0.64154494 0.661453   0.66563547 0.66867036 0.70631355]
+2025-01-01 11:33:46,672 - INFO - FAISS search indices: [710 638 709 716 717 715]
+2025-01-01 11:33:46,672 - INFO - Returning 6 results to the query.
+2025-01-01 11:33:47,935 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 11:33:48,389 - INFO - Provider 'Anthropic' generated a response of 60 tokens from an input of 3480 tokens.
+2025-01-01 11:33:48,389 - INFO - Received query: Claude Shannon contributions
+2025-01-01 11:33:48,393 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 11:33:48,395 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 11:33:48,395 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 11:33:48,399 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:33:48,399 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:33:49,477 - INFO - FAISS search distances: [0.819361   0.82975256 0.83583033 0.85684264 0.8664868  0.8812606 ]
+2025-01-01 11:33:49,477 - INFO - FAISS search indices: [22 44  9 33 11  2]
+2025-01-01 11:33:49,477 - INFO - Returning 6 results to the query.
+2025-01-01 11:33:50,904 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 11:33:55,251 - INFO - Provider 'Anthropic' generated a response of 266 tokens from an input of 4550 tokens.
+2025-01-01 11:33:55,251 - INFO - Received query: David Byrne career and contributions
+2025-01-01 11:33:55,255 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 11:33:55,257 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 11:33:55,257 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 11:33:55,261 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:33:55,261 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:33:57,152 - INFO - FAISS search distances: [0.74903965 0.75824594 0.8898604  0.9058161  0.90781    0.92171216]
+2025-01-01 11:33:57,153 - INFO - FAISS search indices: [767 725 724 763 722 764]
+2025-01-01 11:33:57,153 - INFO - Returning 6 results to the query.
+2025-01-01 11:33:58,958 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 11:34:00,156 - INFO - Provider 'Anthropic' generated a response of 92 tokens from an input of 5752 tokens.
+2025-01-01 11:34:00,157 - INFO - Received query: Eric Hoffer philosopher background
+2025-01-01 11:34:00,161 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 11:34:00,163 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 11:34:00,163 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 11:34:00,167 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:34:00,167 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:34:01,183 - INFO - FAISS search distances: [0.5839416 0.5918325 0.6843535 0.6961591 0.7451465 0.7843993]
+2025-01-01 11:34:01,183 - INFO - FAISS search indices: [816 810 803 800 812 818]
+2025-01-01 11:34:01,183 - INFO - Returning 6 results to the query.
+2025-01-01 11:34:02,611 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 11:34:07,321 - INFO - Provider 'Anthropic' generated a response of 257 tokens from an input of 6862 tokens.
+2025-01-01 11:34:36,503 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 11:34:38,208 - INFO - Provider 'Anthropic' generated a response of 86 tokens from an input of 7142 tokens.
+2025-01-01 11:34:38,209 - INFO - Received query: early life education childhood background for all subjects
+2025-01-01 11:34:38,212 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 11:34:38,214 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 11:34:38,214 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 11:34:38,217 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:34:38,217 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:34:39,262 - INFO - FAISS search distances: [1.1831042 1.2150811 1.239551  1.2445433 1.2688376 1.294369 ]
+2025-01-01 11:34:39,262 - INFO - FAISS search indices: [723 725 722 724   1  52]
+2025-01-01 11:34:39,262 - INFO - Returning 6 results to the query.
+2025-01-01 11:34:40,666 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 11:34:40,907 - INFO - Provider 'Anthropic' generated a response of 63 tokens from an input of 8108 tokens.
+2025-01-01 11:34:40,908 - INFO - Received query: awards recognition achievements impact influence legacy
+2025-01-01 11:34:40,911 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 11:34:40,913 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 11:34:40,913 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 11:34:40,917 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:34:40,917 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:34:42,097 - INFO - FAISS search distances: [1.2664402 1.3993626 1.4104882 1.4236547 1.4320173 1.4461141]
+2025-01-01 11:34:42,097 - INFO - FAISS search indices: [ 46 714 713 638 715 718]
+2025-01-01 11:34:42,097 - INFO - Returning 6 results to the query.
+2025-01-01 11:34:43,707 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 11:34:44,358 - INFO - Provider 'Anthropic' generated a response of 65 tokens from an input of 9236 tokens.
+2025-01-01 11:34:44,358 - INFO - Received query: creative work innovation technology art science crossover
+2025-01-01 11:34:44,361 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 11:34:44,362 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 11:34:44,362 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 11:34:44,364 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:34:44,365 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:34:45,623 - INFO - FAISS search distances: [1.252474  1.299505  1.3218628 1.3884294 1.4052371 1.4144282]
+2025-01-01 11:34:45,623 - INFO - FAISS search indices: [ 57 526 660 705 816 525]
+2025-01-01 11:34:45,623 - INFO - Returning 6 results to the query.
+2025-01-01 11:34:47,443 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 11:34:54,147 - INFO - Provider 'Anthropic' generated a response of 376 tokens from an input of 10345 tokens.
+2025-01-01 11:37:26,765 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 11:37:26,766 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Claude Shannon&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 11:37:27,279 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Claude Shannon&explaintext=1&exsectionformat=wiki
+2025-01-01 11:37:27,382 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:37:27,382 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:39:44,883 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 11:39:44,883 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Danny Hillis&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 11:39:45,135 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Danny Hillis&explaintext=1&exsectionformat=wiki
+2025-01-01 11:39:45,227 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:39:45,227 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:40:16,850 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 11:40:16,850 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Information theory&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 11:40:17,256 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Information theory&explaintext=1&exsectionformat=wiki
+2025-01-01 11:40:17,989 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:40:17,989 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:42:01,942 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 11:42:01,942 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Walmart&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 11:42:02,428 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Walmart&explaintext=1&exsectionformat=wiki
+2025-01-01 11:42:02,686 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:42:02,687 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:48:15,626 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 11:48:15,626 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Amazon (company)&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 11:48:17,396 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Amazon (company)&explaintext=1&exsectionformat=wiki
+2025-01-01 11:48:17,538 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:48:17,538 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:50:34,970 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 11:50:34,971 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Omnichannel retail strategy&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 11:50:35,178 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Omnichannel retail strategy&explaintext=1&exsectionformat=wiki
+2025-01-01 11:50:35,326 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:50:35,326 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:50:52,688 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 11:50:52,688 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Behavioral economics&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 11:50:53,463 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Behavioral economics&explaintext=1&exsectionformat=wiki
+2025-01-01 11:50:53,599 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:50:53,599 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:53:34,883 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 11:53:34,883 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Athleisure&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 11:53:35,082 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Athleisure&explaintext=1&exsectionformat=wiki
+2025-01-01 11:53:35,158 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:53:35,159 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:53:59,609 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 11:53:59,610 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Social commerce&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 11:53:59,880 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Social commerce&explaintext=1&exsectionformat=wiki
+2025-01-01 11:53:59,957 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:53:59,958 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:54:23,497 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 11:54:23,497 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Digital economy&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 11:54:23,749 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Digital economy&explaintext=1&exsectionformat=wiki
+2025-01-01 11:54:23,942 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:54:23,943 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:56:08,276 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 11:56:08,277 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=E-commerce in China&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 11:56:08,512 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=E-commerce in China&explaintext=1&exsectionformat=wiki
+2025-01-01 11:56:08,590 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:56:08,591 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:56:57,412 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 11:56:57,412 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Flipkart&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 11:56:57,624 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Flipkart&explaintext=1&exsectionformat=wiki
+2025-01-01 11:56:57,732 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:56:57,732 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:58:50,247 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 11:58:50,247 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Digital transformation&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 11:58:50,537 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Digital transformation&explaintext=1&exsectionformat=wiki
+2025-01-01 11:58:50,632 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:58:50,632 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 11:59:11,651 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 11:59:11,652 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=David Bowie&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 11:59:12,078 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=David Bowie&explaintext=1&exsectionformat=wiki
+2025-01-01 11:59:12,269 - INFO - Use pytorch device_name: cpu
+2025-01-01 11:59:12,269 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 12:06:09,322 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 12:06:09,323 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=David Byrne&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 12:06:09,600 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=David Byrne&explaintext=1&exsectionformat=wiki
+2025-01-01 12:06:09,699 - INFO - Use pytorch device_name: cpu
+2025-01-01 12:06:09,699 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 12:08:00,195 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 12:08:00,195 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Wayne Coyne&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 12:08:00,420 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Wayne Coyne&explaintext=1&exsectionformat=wiki
+2025-01-01 12:08:00,619 - INFO - Use pytorch device_name: cpu
+2025-01-01 12:08:00,619 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 12:09:00,593 - INFO - Wikipedia: language=en, user_agent: MyWikipediaApp/1.0 (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2025-01-01 12:09:00,594 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Eric Hoffer&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2025-01-01 12:09:00,806 - INFO - Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=Eric Hoffer&explaintext=1&exsectionformat=wiki
+2025-01-01 12:09:00,893 - INFO - Use pytorch device_name: cpu
+2025-01-01 12:09:00,893 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 12:32:08,757 - INFO - Use pytorch device_name: cpu
+2025-01-01 12:32:08,758 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 12:33:22,848 - INFO - Defaulting to `model = 'claude-3-5-sonnet-latest'`.
+2025-01-01 12:33:56,011 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 12:33:57,041 - INFO - Provider 'Anthropic' generated a response of 88 tokens from an input of 965 tokens.
+2025-01-01 12:33:57,042 - INFO - Received query: David Bowie artistic works background nationality birth
+2025-01-01 12:33:57,046 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 12:33:57,048 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 12:33:57,048 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 12:33:57,054 - INFO - Use pytorch device_name: cpu
+2025-01-01 12:33:57,055 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 12:33:58,174 - INFO - FAISS search distances: [0.75362813 0.7634648  0.7816007  0.7879392  0.7965243  0.8131931 ]
+2025-01-01 12:33:58,174 - INFO - FAISS search indices: [534 657 658 659 708 660]
+2025-01-01 12:33:58,174 - INFO - Returning 6 results to the query.
+2025-01-01 12:33:59,467 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 12:33:59,703 - INFO - Provider 'Anthropic' generated a response of 65 tokens from an input of 2171 tokens.
+2025-01-01 12:33:59,704 - INFO - Received query: David Byrne nationality artistic work background
+2025-01-01 12:33:59,708 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 12:33:59,710 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 12:33:59,710 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 12:33:59,714 - INFO - Use pytorch device_name: cpu
+2025-01-01 12:33:59,714 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 12:34:01,071 - INFO - FAISS search distances: [0.6991953  0.7809249  0.8193505  0.82565576 0.8299384  0.84220856]
+2025-01-01 12:34:01,071 - INFO - FAISS search indices: [763 725 766 724 759 746]
+2025-01-01 12:34:01,071 - INFO - Returning 6 results to the query.
+2025-01-01 12:34:02,124 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 12:34:11,809 - INFO - Provider 'Anthropic' generated a response of 560 tokens from an input of 3277 tokens.
+2025-01-01 12:50:32,308 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 12:50:33,554 - INFO - Provider 'Anthropic' generated a response of 84 tokens from an input of 3848 tokens.
+2025-01-01 12:50:33,555 - INFO - Received query: David Bowie acting film theater other artistic media performance art
+2025-01-01 12:50:33,557 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 12:50:33,558 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 12:50:33,558 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 12:50:33,562 - INFO - Use pytorch device_name: cpu
+2025-01-01 12:50:33,562 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 12:50:34,953 - INFO - FAISS search distances: [0.799267   0.8286096  0.83841866 0.847695   0.8616739  0.9222003 ]
+2025-01-01 12:50:34,953 - INFO - FAISS search indices: [641 646 712 642 658 660]
+2025-01-01 12:50:34,954 - INFO - Returning 6 results to the query.
+2025-01-01 12:50:35,952 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 12:50:42,658 - INFO - Provider 'Anthropic' generated a response of 431 tokens from an input of 5215 tokens.
+2025-01-01 12:51:13,380 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 12:51:25,886 - INFO - Provider 'Anthropic' generated a response of 696 tokens from an input of 5686 tokens.
+2025-01-01 12:51:43,896 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 12:51:45,026 - INFO - Provider 'Anthropic' generated a response of 85 tokens from an input of 6398 tokens.
+2025-01-01 12:51:45,027 - INFO - Received query: David Byrne birth place Scotland origin early life
+2025-01-01 12:51:45,031 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 12:51:45,033 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 12:51:45,034 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 12:51:45,038 - INFO - Use pytorch device_name: cpu
+2025-01-01 12:51:45,038 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 12:51:46,333 - INFO - FAISS search distances: [0.5402788  0.57269084 0.6168153  0.7674702  0.9834138  1.075071  ]
+2025-01-01 12:51:46,333 - INFO - FAISS search indices: [723 722 765 764 725 724]
+2025-01-01 12:51:46,333 - INFO - Returning 6 results to the query.
+2025-01-01 12:51:47,453 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 12:51:52,102 - INFO - Provider 'Anthropic' generated a response of 290 tokens from an input of 7359 tokens.
+2025-01-01 13:06:59,762 - INFO - Defaulting to `model = 'claude-3-5-sonnet-latest'`.
+2025-01-01 13:07:07,389 - INFO - Defaulting to `model = 'claude-3-5-sonnet-latest'`.
+2025-01-01 13:07:23,557 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 400 Bad Request"
+2025-01-01 13:08:49,867 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:08:53,636 - INFO - Provider 'Anthropic' generated a response of 254 tokens from an input of 930 tokens.
+2025-01-01 13:09:02,131 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:09:03,232 - INFO - Provider 'Anthropic' generated a response of 75 tokens from an input of 1193 tokens.
+2025-01-01 13:09:03,233 - INFO - Received query: context length system limitations
+2025-01-01 13:09:03,235 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 13:09:03,236 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 13:09:03,236 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 13:09:03,239 - INFO - Use pytorch device_name: cpu
+2025-01-01 13:09:03,239 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 13:09:04,513 - INFO - FAISS search distances: [1.4126766 1.4537799 1.4725972 1.4843214 1.4879575 1.490514 ]
+2025-01-01 13:09:04,513 - INFO - FAISS search indices: [89 86 87 88 84 91]
+2025-01-01 13:09:04,513 - INFO - Returning 6 results to the query.
+2025-01-01 13:09:05,828 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:09:09,918 - INFO - Provider 'Anthropic' generated a response of 219 tokens from an input of 4007 tokens.
+2025-01-01 13:09:27,216 - INFO - Defaulting to `model = 'claude-3-5-sonnet-latest'`.
+2025-01-01 13:09:31,108 - INFO - Defaulting to `model = 'claude-3-5-sonnet-latest'`.
+2025-01-01 13:10:27,533 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:10:27,679 - INFO - Provider 'Anthropic' generated a response of 10 tokens from an input of 928 tokens.
+2025-01-01 13:10:37,661 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:10:37,668 - INFO - Provider 'Anthropic' generated a response of 10 tokens from an input of 948 tokens.
+2025-01-01 13:10:46,272 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:10:46,276 - INFO - Provider 'Anthropic' generated a response of 10 tokens from an input of 966 tokens.
+2025-01-01 13:10:56,104 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:10:56,112 - INFO - Provider 'Anthropic' generated a response of 10 tokens from an input of 986 tokens.
+2025-01-01 13:11:04,295 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:11:04,365 - INFO - Provider 'Anthropic' generated a response of 10 tokens from an input of 1004 tokens.
+2025-01-01 13:11:19,347 - INFO - Defaulting to `model = 'claude-3-5-sonnet-latest'`.
+2025-01-01 13:11:30,347 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:11:31,449 - INFO - Provider 'Anthropic' generated a response of 84 tokens from an input of 931 tokens.
+2025-01-01 13:11:31,450 - INFO - Received query: David Bowie birthplace birth place born
+2025-01-01 13:11:31,452 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 13:11:31,454 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 13:11:31,454 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 13:11:31,456 - INFO - Use pytorch device_name: cpu
+2025-01-01 13:11:31,457 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 13:11:32,530 - INFO - FAISS search distances: [0.69566876 0.78052896 0.78531814 0.8663744  0.87507164 0.9057214 ]
+2025-01-01 13:11:32,530 - INFO - FAISS search indices: [534 535 671 702 701 536]
+2025-01-01 13:11:32,530 - INFO - Returning 6 results to the query.
+2025-01-01 13:11:33,495 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:11:34,755 - INFO - Provider 'Anthropic' generated a response of 100 tokens from an input of 2011 tokens.
+2025-01-01 13:11:47,306 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:11:48,404 - INFO - Provider 'Anthropic' generated a response of 82 tokens from an input of 2120 tokens.
+2025-01-01 13:11:48,404 - INFO - Received query: Danny Hillis birth date age born when
+2025-01-01 13:11:48,408 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 13:11:48,409 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 13:11:48,409 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 13:11:48,412 - INFO - Use pytorch device_name: cpu
+2025-01-01 13:11:48,412 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 13:11:49,475 - INFO - FAISS search distances: [0.784958   0.98846954 1.0073992  1.1426     1.157026   1.1966312 ]
+2025-01-01 13:11:49,475 - INFO - FAISS search indices: [52 54 53 60 57 61]
+2025-01-01 13:11:49,476 - INFO - Returning 6 results to the query.
+2025-01-01 13:11:51,362 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:11:52,400 - INFO - Provider 'Anthropic' generated a response of 100 tokens from an input of 3276 tokens.
+2025-01-01 13:12:07,685 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:12:07,711 - INFO - Provider 'Anthropic' generated a response of 49 tokens from an input of 3398 tokens.
+2025-01-01 13:14:13,819 - INFO - Defaulting to `model = 'claude-3-5-sonnet-latest'`.
+2025-01-01 13:14:38,421 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:14:39,526 - INFO - Provider 'Anthropic' generated a response of 88 tokens from an input of 1007 tokens.
+2025-01-01 13:14:39,526 - INFO - Received query: information theory applications retail omnichannel data
+2025-01-01 13:14:39,529 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 13:14:39,530 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 13:14:39,530 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 13:14:39,531 - INFO - Use pytorch device_name: cpu
+2025-01-01 13:14:39,531 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 13:14:40,625 - INFO - FAISS search distances: [0.80255747 0.8809416  0.9173732  0.9342028  0.9967083  1.0567483 ]
+2025-01-01 13:14:40,625 - INFO - FAISS search indices: [320 318 316 319 424 317]
+2025-01-01 13:14:40,625 - INFO - Returning 6 results to the query.
+2025-01-01 13:14:43,233 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:14:43,246 - INFO - Provider 'Anthropic' generated a response of 74 tokens from an input of 2361 tokens.
+2025-01-01 13:14:43,246 - INFO - Received query: information theory Claude Shannon data communication
+2025-01-01 13:14:43,250 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 13:14:43,251 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 13:14:43,251 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 13:14:43,254 - INFO - Use pytorch device_name: cpu
+2025-01-01 13:14:43,254 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 13:14:44,460 - INFO - FAISS search distances: [0.3628884  0.44391024 0.49779522 0.5431922  0.56440216 0.57799804]
+2025-01-01 13:14:44,460 - INFO - FAISS search indices: [18 19 22 62 31 64]
+2025-01-01 13:14:44,460 - INFO - Returning 6 results to the query.
+2025-01-01 13:14:45,711 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:14:51,250 - INFO - Provider 'Anthropic' generated a response of 293 tokens from an input of 3587 tokens.
+2025-01-01 13:15:03,642 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:15:05,766 - INFO - Provider 'Anthropic' generated a response of 112 tokens from an input of 3888 tokens.
+2025-01-01 13:15:33,926 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:15:35,474 - INFO - Provider 'Anthropic' generated a response of 127 tokens from an input of 4018 tokens.
+2025-01-01 13:16:09,459 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:16:10,996 - INFO - Provider 'Anthropic' generated a response of 77 tokens from an input of 4162 tokens.
+2025-01-01 13:16:10,997 - INFO - Received query: David Byrne technology art perception systems
+2025-01-01 13:16:11,001 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 13:16:11,003 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 13:16:11,003 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 13:16:11,006 - INFO - Use pytorch device_name: cpu
+2025-01-01 13:16:11,006 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 13:16:12,260 - INFO - FAISS search distances: [0.85687226 1.0545928  1.1113567  1.1235313  1.1541593  1.1544302 ]
+2025-01-01 13:16:12,260 - INFO - FAISS search indices: [763 725 766 746 759 767]
+2025-01-01 13:16:12,260 - INFO - Returning 6 results to the query.
+2025-01-01 13:16:14,554 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:16:14,559 - INFO - Provider 'Anthropic' generated a response of 66 tokens from an input of 5332 tokens.
+2025-01-01 13:16:14,559 - INFO - Received query: Eric Hoffer philosophy mass movements technology change
+2025-01-01 13:16:14,563 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 13:16:14,565 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 13:16:14,565 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 13:16:14,568 - INFO - Use pytorch device_name: cpu
+2025-01-01 13:16:14,568 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 13:16:15,666 - INFO - FAISS search distances: [0.58662295 0.71270233 0.8151837  0.91528726 1.0750113  1.0885391 ]
+2025-01-01 13:16:15,666 - INFO - FAISS search indices: [812 813 817 816 814 807]
+2025-01-01 13:16:15,666 - INFO - Returning 6 results to the query.
+2025-01-01 13:16:16,802 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:16:20,525 - INFO - Provider 'Anthropic' generated a response of 175 tokens from an input of 6740 tokens.
+2025-01-01 13:30:31,868 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 404 Not Found"
+2025-01-01 13:31:37,097 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:31:39,541 - INFO - Provider 'Anthropic' generated a response of 135 tokens from an input of 955 tokens.
+2025-01-01 13:31:51,229 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:31:52,423 - INFO - Provider 'Anthropic' generated a response of 74 tokens from an input of 1104 tokens.
+2025-01-01 13:31:52,424 - INFO - Received query: Claude Shannon France connection, David Bowie France connection, Danny Hillis France connection
+2025-01-01 13:31:52,426 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 13:31:52,427 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 13:31:52,427 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 13:31:52,430 - INFO - Use pytorch device_name: cpu
+2025-01-01 13:31:52,430 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 13:31:54,467 - INFO - FAISS search distances: [1.0707161 1.082213  1.108067  1.1354322 1.1588362 1.1687205]
+2025-01-01 13:31:54,467 - INFO - FAISS search indices: [ 2 32 36 37 28 47]
+2025-01-01 13:31:54,467 - INFO - Returning 6 results to the query.
+2025-01-01 13:31:55,961 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:31:59,802 - INFO - Provider 'Anthropic' generated a response of 195 tokens from an input of 1981 tokens.
+2025-01-01 13:32:17,046 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:32:17,746 - INFO - Provider 'Anthropic' generated a response of 63 tokens from an input of 2192 tokens.
+2025-01-01 13:32:17,746 - INFO - Received query: Claude Shannon collaborators co-authors
+2025-01-01 13:32:17,751 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 13:32:17,752 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 13:32:17,752 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 13:32:17,757 - INFO - Use pytorch device_name: cpu
+2025-01-01 13:32:17,757 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 13:32:19,741 - INFO - FAISS search distances: [0.62788033 0.6370481  0.6591522  0.6672166  0.6804186  0.70097935]
+2025-01-01 13:32:19,741 - INFO - FAISS search indices: [36  2 33 35  1  9]
+2025-01-01 13:32:19,742 - INFO - Returning 6 results to the query.
+2025-01-01 13:32:21,296 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-01-01 13:32:25,359 - INFO - Provider 'Anthropic' generated a response of 218 tokens from an input of 3125 tokens.
+2025-01-01 13:39:39,953 - INFO - HTTP Request: GET https://api.anthropic.com/v1/models?limit=20 "HTTP/1.1 200 OK"
+2025-01-01 13:51:19,665 - INFO - Use pytorch device_name: cpu
+2025-01-01 13:51:19,666 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 13:55:20,591 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:55:20,592 - INFO - Retrying request to /chat/completions in 0.436643 seconds
+2025-01-01 13:55:21,281 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:55:21,282 - INFO - Retrying request to /chat/completions in 0.876067 seconds
+2025-01-01 13:55:22,423 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:56:09,763 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:56:09,765 - INFO - Retrying request to /chat/completions in 0.387194 seconds
+2025-01-01 13:56:10,304 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:56:10,305 - INFO - Retrying request to /chat/completions in 0.954351 seconds
+2025-01-01 13:56:11,444 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:58:08,722 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:58:08,723 - INFO - Retrying request to /chat/completions in 0.426071 seconds
+2025-01-01 13:58:09,395 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:58:09,397 - INFO - Retrying request to /chat/completions in 0.886584 seconds
+2025-01-01 13:58:10,508 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:58:14,726 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:58:14,728 - INFO - Retrying request to /chat/completions in 0.464129 seconds
+2025-01-01 13:58:15,438 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:58:15,439 - INFO - Retrying request to /chat/completions in 0.768922 seconds
+2025-01-01 13:58:16,427 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:58:59,665 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:58:59,666 - INFO - Retrying request to /chat/completions in 0.438386 seconds
+2025-01-01 13:59:00,374 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:59:00,375 - INFO - Retrying request to /chat/completions in 0.915096 seconds
+2025-01-01 13:59:01,580 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:59:16,393 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:59:16,394 - INFO - Retrying request to /chat/completions in 0.387876 seconds
+2025-01-01 13:59:17,119 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 13:59:17,120 - INFO - Retrying request to /chat/completions in 0.835477 seconds
+2025-01-01 13:59:18,200 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 14:00:13,559 - INFO - Use pytorch device_name: cpu
+2025-01-01 14:00:13,559 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 14:00:22,137 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 14:00:22,137 - INFO - Retrying request to /chat/completions in 0.476525 seconds
+2025-01-01 14:00:22,847 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 14:00:22,848 - INFO - Retrying request to /chat/completions in 0.823079 seconds
+2025-01-01 14:00:23,942 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-01-01 14:15:51,954 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:16:20,705 - INFO - Use pytorch device_name: cpu
+2025-01-01 14:16:20,705 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 14:16:27,691 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:16:28,412 - INFO - Provider 'OpenAI' generated a response of 72 tokens from an input of 594 tokens.
+2025-01-01 14:16:36,708 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:16:38,325 - INFO - Provider 'OpenAI' generated a response of 169 tokens from an input of 676 tokens.
+2025-01-01 14:16:45,817 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:16:45,852 - INFO - Provider 'OpenAI' generated a response of 60 tokens from an input of 857 tokens.
+2025-01-01 14:16:45,853 - INFO - Received query: Amazon's role in the digital economy
+2025-01-01 14:16:45,854 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 14:16:45,855 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 14:16:45,856 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 14:16:45,858 - INFO - Use pytorch device_name: cpu
+2025-01-01 14:16:45,858 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 14:16:47,412 - INFO - FAISS search distances: [0.5237284  0.57681423 0.64097154 0.6472752  0.67328906 0.67627573]
+2025-01-01 14:16:47,413 - INFO - FAISS search indices: [422 267 293 311 262 263]
+2025-01-01 14:16:47,413 - INFO - Returning 6 results to the query.
+2025-01-01 14:16:47,413 - INFO - Received query: Walmart's adaptation to e-commerce
+2025-01-01 14:16:47,414 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 14:16:47,415 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 14:16:47,415 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 14:16:47,417 - INFO - Use pytorch device_name: cpu
+2025-01-01 14:16:47,417 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 14:16:48,832 - INFO - FAISS search distances: [0.64831007 0.6582931  0.6697635  0.6822004  0.70325387 0.70731974]
+2025-01-01 14:16:48,832 - INFO - FAISS search indices: [229 132 228 211 112 218]
+2025-01-01 14:16:48,833 - INFO - Returning 6 results to the query.
+2025-01-01 14:16:49,372 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:16:52,637 - INFO - Provider 'OpenAI' generated a response of 365 tokens from an input of 3203 tokens.
+2025-01-01 14:19:50,554 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:19:51,334 - INFO - Provider 'OpenAI' generated a response of 65 tokens from an input of 3581 tokens.
+2025-01-01 14:19:58,809 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:19:58,855 - INFO - Provider 'OpenAI' generated a response of 56 tokens from an input of 3655 tokens.
+2025-01-01 14:19:58,856 - INFO - Received query: Wayne Coyne biography
+2025-01-01 14:19:58,859 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 14:19:58,861 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 14:19:58,861 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 14:19:58,865 - INFO - Use pytorch device_name: cpu
+2025-01-01 14:19:58,866 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 14:19:59,964 - INFO - FAISS search distances: [0.80600786 0.8167971  0.8371693  0.8578448  0.8640069  0.8664242 ]
+2025-01-01 14:19:59,964 - INFO - FAISS search indices: [790 770 786 782 792 794]
+2025-01-01 14:19:59,964 - INFO - Returning 6 results to the query.
+2025-01-01 14:19:59,965 - INFO - Received query: David Bowie influence in music
+2025-01-01 14:19:59,966 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 14:19:59,967 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 14:19:59,967 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 14:19:59,971 - INFO - Use pytorch device_name: cpu
+2025-01-01 14:19:59,971 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 14:20:01,132 - INFO - FAISS search distances: [0.47983527 0.49596357 0.5001923  0.60941344 0.64892256 0.6659574 ]
+2025-01-01 14:20:01,132 - INFO - FAISS search indices: [704 708 703 667 666 709]
+2025-01-01 14:20:01,133 - INFO - Returning 6 results to the query.
+2025-01-01 14:20:01,881 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:20:08,821 - INFO - Provider 'OpenAI' generated a response of 435 tokens from an input of 5761 tokens.
+2025-01-01 14:20:20,349 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:20:29,369 - INFO - Provider 'OpenAI' generated a response of 448 tokens from an input of 6218 tokens.
+2025-01-01 14:20:36,118 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:20:36,163 - INFO - Provider 'OpenAI' generated a response of 59 tokens from an input of 6679 tokens.
+2025-01-01 14:20:36,164 - INFO - Received query: digital economy impact on music industry
+2025-01-01 14:20:36,168 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 14:20:36,169 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 14:20:36,169 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 14:20:36,173 - INFO - Use pytorch device_name: cpu
+2025-01-01 14:20:36,173 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 14:20:37,518 - INFO - FAISS search distances: [0.6812705  0.7347807  0.751167   0.77552164 0.77682376 0.8083811 ]
+2025-01-01 14:20:37,518 - INFO - FAISS search indices: [422 452 413 414 409 415]
+2025-01-01 14:20:37,518 - INFO - Returning 6 results to the query.
+2025-01-01 14:20:37,519 - INFO - Received query: behavioral economics in consumer choices music
+2025-01-01 14:20:37,520 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 14:20:37,521 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 14:20:37,521 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 14:20:37,523 - INFO - Use pytorch device_name: cpu
+2025-01-01 14:20:37,523 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 14:20:38,612 - INFO - FAISS search distances: [0.82293445 0.861587   0.8938703  0.90481114 0.9060043  0.91821575]
+2025-01-01 14:20:38,612 - INFO - FAISS search indices: [381 383 382 380 378 341]
+2025-01-01 14:20:38,612 - INFO - Returning 6 results to the query.
+2025-01-01 14:20:39,351 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:20:45,495 - INFO - Provider 'OpenAI' generated a response of 563 tokens from an input of 8682 tokens.
+2025-01-01 14:45:08,610 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:45:08,641 - INFO - Provider 'OpenAI' generated a response of 9 tokens from an input of 8 tokens.
+2025-01-01 14:45:26,012 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:45:26,290 - INFO - Provider 'OpenAI' generated a response of 87 tokens from an input of 29 tokens.
+2025-01-01 14:46:28,805 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:46:30,169 - INFO - Provider 'OpenAI' generated a response of 55 tokens from an input of 132 tokens.
+2025-01-01 14:46:40,645 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:46:41,645 - INFO - Provider 'OpenAI' generated a response of 39 tokens from an input of 200 tokens.
+2025-01-01 14:46:46,175 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:46:46,729 - INFO - Provider 'OpenAI' generated a response of 42 tokens from an input of 253 tokens.
+2025-01-01 14:46:59,397 - INFO - Use pytorch device_name: cpu
+2025-01-01 14:46:59,397 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 14:47:18,226 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:47:19,160 - INFO - Provider 'OpenAI' generated a response of 49 tokens from an input of 602 tokens.
+2025-01-01 14:49:06,458 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:49:06,547 - INFO - Provider 'OpenAI' generated a response of 10 tokens from an input of 662 tokens.
+2025-01-01 14:49:09,838 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:49:09,844 - INFO - Provider 'OpenAI' generated a response of 10 tokens from an input of 681 tokens.
+2025-01-01 14:49:09,845 - INFO - Error invoking tool function 'process_user_input' with arguments: {}. The error message is: 'process_user_input() missing 1 required positional argument: 'user_query''
+2025-01-01 14:49:10,518 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:49:10,522 - INFO - Provider 'OpenAI' generated a response of 10 tokens from an input of 723 tokens.
+2025-01-01 14:49:10,522 - INFO - Error invoking tool function 'process_user_input' with arguments: {}. The error message is: 'process_user_input() missing 1 required positional argument: 'user_query''
+2025-01-01 14:49:11,027 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:49:11,032 - INFO - Provider 'OpenAI' generated a response of 10 tokens from an input of 765 tokens.
+2025-01-01 14:49:11,032 - INFO - Error invoking tool function 'process_user_input' with arguments: {}. The error message is: 'process_user_input() missing 1 required positional argument: 'user_query''
+2025-01-01 14:49:11,782 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:49:11,786 - INFO - Provider 'OpenAI' generated a response of 10 tokens from an input of 807 tokens.
+2025-01-01 14:49:11,787 - INFO - Error invoking tool function 'process_user_input' with arguments: {}. The error message is: 'process_user_input() missing 1 required positional argument: 'user_query''
+2025-01-01 14:49:12,326 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:49:12,329 - INFO - Provider 'OpenAI' generated a response of 10 tokens from an input of 849 tokens.
+2025-01-01 14:49:12,330 - INFO - Error invoking tool function 'process_user_input' with arguments: {}. The error message is: 'process_user_input() missing 1 required positional argument: 'user_query''
+2025-01-01 14:49:12,878 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:49:12,882 - INFO - Provider 'OpenAI' generated a response of 10 tokens from an input of 891 tokens.
+2025-01-01 14:49:12,882 - INFO - Error invoking tool function 'process_user_input' with arguments: {}. The error message is: 'process_user_input() missing 1 required positional argument: 'user_query''
+2025-01-01 14:49:13,490 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:49:13,493 - INFO - Provider 'OpenAI' generated a response of 10 tokens from an input of 933 tokens.
+2025-01-01 14:49:13,494 - INFO - Error invoking tool function 'process_user_input' with arguments: {}. The error message is: 'process_user_input() missing 1 required positional argument: 'user_query''
+2025-01-01 14:49:14,101 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:49:14,105 - INFO - Provider 'OpenAI' generated a response of 10 tokens from an input of 975 tokens.
+2025-01-01 14:49:14,106 - INFO - Error invoking tool function 'process_user_input' with arguments: {}. The error message is: 'process_user_input() missing 1 required positional argument: 'user_query''
+2025-01-01 14:49:14,647 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:49:14,651 - INFO - Provider 'OpenAI' generated a response of 10 tokens from an input of 1017 tokens.
+2025-01-01 14:49:14,651 - INFO - Error invoking tool function 'process_user_input' with arguments: {}. The error message is: 'process_user_input() missing 1 required positional argument: 'user_query''
+2025-01-01 14:49:15,227 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:49:15,231 - INFO - Provider 'OpenAI' generated a response of 10 tokens from an input of 1059 tokens.
+2025-01-01 14:49:15,232 - INFO - Error invoking tool function 'process_user_input' with arguments: {}. The error message is: 'process_user_input() missing 1 required positional argument: 'user_query''
+2025-01-01 14:49:15,848 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:49:27,342 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-01-01 14:49:39,856 - INFO - Use pytorch device_name: cpu
+2025-01-01 14:49:39,856 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 14:49:50,335 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:49:50,850 - INFO - Provider 'OpenAI' generated a response of 50 tokens from an input of 595 tokens.
+2025-01-01 14:49:58,170 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:49:58,368 - INFO - Provider 'OpenAI' generated a response of 17 tokens from an input of 654 tokens.
+2025-01-01 14:49:58,369 - INFO - Received query: David Bowie
+2025-01-01 14:49:58,372 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 14:49:58,374 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 14:49:58,374 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 14:49:58,378 - INFO - Use pytorch device_name: cpu
+2025-01-01 14:49:58,378 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 14:49:59,448 - INFO - FAISS search distances: [0.63895565 0.6623359  0.6815448  0.7437484  0.7493928  0.75352955]
+2025-01-01 14:49:59,448 - INFO - FAISS search indices: [701 689 683 700 709 688]
+2025-01-01 14:49:59,448 - INFO - Returning 6 results to the query.
+2025-01-01 14:49:59,978 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:50:00,749 - INFO - Provider 'OpenAI' generated a response of 100 tokens from an input of 1443 tokens.
+2025-01-01 14:50:10,663 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:50:11,413 - INFO - Provider 'OpenAI' generated a response of 86 tokens from an input of 1562 tokens.
+2025-01-01 14:50:22,411 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:50:22,481 - INFO - Provider 'OpenAI' generated a response of 18 tokens from an input of 1657 tokens.
+2025-01-01 14:50:22,481 - INFO - Received query: Eric Hoffer
+2025-01-01 14:50:22,483 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 14:50:22,485 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 14:50:22,485 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 14:50:22,488 - INFO - Use pytorch device_name: cpu
+2025-01-01 14:50:22,489 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 14:50:24,207 - INFO - FAISS search distances: [0.68709934 0.7094958  0.7759131  0.79347235 0.8066049  0.80867934]
+2025-01-01 14:50:24,207 - INFO - FAISS search indices: [810 800 801 806 803 808]
+2025-01-01 14:50:24,213 - INFO - Returning 6 results to the query.
+2025-01-01 14:50:24,862 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:50:25,734 - INFO - Provider 'OpenAI' generated a response of 100 tokens from an input of 2440 tokens.
+2025-01-01 14:50:29,106 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:50:29,119 - INFO - Provider 'OpenAI' generated a response of 17 tokens from an input of 2549 tokens.
+2025-01-01 14:50:29,119 - INFO - Received query: Claude Shannon
+2025-01-01 14:50:29,123 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 14:50:29,125 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 14:50:29,126 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 14:50:29,130 - INFO - Use pytorch device_name: cpu
+2025-01-01 14:50:29,130 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 14:50:30,146 - INFO - FAISS search distances: [0.5877234  0.60965824 0.64361787 0.6762372  0.6840662  0.6998385 ]
+2025-01-01 14:50:30,146 - INFO - FAISS search indices: [ 2  1 36  0 35 32]
+2025-01-01 14:50:30,146 - INFO - Returning 6 results to the query.
+2025-01-01 14:50:30,708 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:50:34,885 - INFO - Provider 'OpenAI' generated a response of 100 tokens from an input of 3328 tokens.
+2025-01-01 14:50:44,594 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 14:50:45,715 - INFO - Provider 'OpenAI' generated a response of 100 tokens from an input of 3449 tokens.
