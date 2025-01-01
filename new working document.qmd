@@ -588,7 +588,7 @@ chat.system_prompt = system_prompt
 # Start the chatbot
 chat.app(
   kwargs={
-        "max_tokens": 100,      # Limits the response length
+        "max_tokens": 500,      # Limits the response length
     }
 )
 ```

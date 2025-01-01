@@ -584,3 +584,146 @@
 2025-01-01 14:50:34,885 - INFO - Provider 'OpenAI' generated a response of 100 tokens from an input of 3328 tokens.
 2025-01-01 14:50:44,594 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-01-01 14:50:45,715 - INFO - Provider 'OpenAI' generated a response of 100 tokens from an input of 3449 tokens.
+2025-01-01 15:22:35,546 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 15:22:36,856 - INFO - Provider 'OpenAI' generated a response of 119 tokens from an input of 601 tokens.
+2025-01-01 15:22:48,999 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 15:22:49,027 - INFO - Provider 'OpenAI' generated a response of 69 tokens from an input of 730 tokens.
+2025-01-01 15:22:49,027 - INFO - Received query: Digital economy
+2025-01-01 15:22:49,028 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 15:22:49,030 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 15:22:49,030 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 15:22:49,032 - INFO - Use pytorch device_name: cpu
+2025-01-01 15:22:49,032 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 15:22:50,075 - INFO - FAISS search distances: [0.33819208 0.36479503 0.41168544 0.425955   0.42876694 0.43146366]
+2025-01-01 15:22:50,075 - INFO - FAISS search indices: [409 412 452 414 422 413]
+2025-01-01 15:22:50,075 - INFO - Returning 6 results to the query.
+2025-01-01 15:22:50,075 - INFO - Received query: Digital transformation
+2025-01-01 15:22:50,076 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 15:22:50,077 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 15:22:50,077 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 15:22:50,079 - INFO - Use pytorch device_name: cpu
+2025-01-01 15:22:50,079 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 15:22:51,097 - INFO - FAISS search distances: [0.37102154 0.50801563 0.5765916  0.7336203  0.7823243  0.7860054 ]
+2025-01-01 15:22:51,097 - INFO - FAISS search indices: [527 528 525 529 526 531]
+2025-01-01 15:22:51,097 - INFO - Returning 6 results to the query.
+2025-01-01 15:22:51,098 - INFO - Received query: E-commerce in China
+2025-01-01 15:22:51,098 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 15:22:51,099 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 15:22:51,099 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 15:22:51,101 - INFO - Use pytorch device_name: cpu
+2025-01-01 15:22:51,101 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 15:22:52,484 - INFO - FAISS search distances: [0.35016006 0.3747936  0.39099398 0.4450335  0.45077384 0.4646587 ]
+2025-01-01 15:22:52,485 - INFO - FAISS search indices: [457 455 462 465 466 456]
+2025-01-01 15:22:52,485 - INFO - Returning 6 results to the query.
+2025-01-01 15:22:53,030 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 15:22:58,603 - INFO - Provider 'OpenAI' generated a response of 496 tokens from an input of 3919 tokens.
+2025-01-01 15:23:13,064 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 15:23:17,984 - INFO - Provider 'OpenAI' generated a response of 438 tokens from an input of 4436 tokens.
+2025-01-01 15:23:25,524 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 15:23:30,028 - INFO - Provider 'OpenAI' generated a response of 500 tokens from an input of 4887 tokens.
+2025-01-01 15:23:41,223 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 15:23:48,587 - INFO - Provider 'OpenAI' generated a response of 392 tokens from an input of 5403 tokens.
+2025-01-01 15:25:12,350 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 15:25:19,846 - INFO - Provider 'OpenAI' generated a response of 460 tokens from an input of 5825 tokens.
+2025-01-01 15:25:25,673 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 15:25:25,687 - INFO - Provider 'OpenAI' generated a response of 50 tokens from an input of 6295 tokens.
+2025-01-01 15:25:25,688 - INFO - Received query: David Bowie
+2025-01-01 15:25:25,690 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 15:25:25,692 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 15:25:25,692 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 15:25:25,695 - INFO - Use pytorch device_name: cpu
+2025-01-01 15:25:25,695 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 15:25:26,615 - INFO - FAISS search distances: [0.63895565 0.6623359  0.6815448  0.7437484  0.7493928  0.75352955]
+2025-01-01 15:25:26,615 - INFO - FAISS search indices: [701 689 683 700 709 688]
+2025-01-01 15:25:26,615 - INFO - Returning 6 results to the query.
+2025-01-01 15:25:26,616 - INFO - Received query: David Byrne
+2025-01-01 15:25:26,616 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 15:25:26,617 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 15:25:26,617 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 15:25:26,619 - INFO - Use pytorch device_name: cpu
+2025-01-01 15:25:26,619 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 15:25:27,819 - INFO - FAISS search distances: [0.7966336  0.81991607 0.82370853 0.83030653 0.84557414 0.85984945]
+2025-01-01 15:25:27,819 - INFO - FAISS search indices: [725 767 724 758 759 728]
+2025-01-01 15:25:27,819 - INFO - Returning 6 results to the query.
+2025-01-01 15:25:28,599 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 15:25:38,423 - INFO - Provider 'OpenAI' generated a response of 480 tokens from an input of 8030 tokens.
+2025-01-01 15:26:11,097 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 15:26:11,189 - INFO - Provider 'OpenAI' generated a response of 69 tokens from an input of 8542 tokens.
+2025-01-01 15:26:11,189 - INFO - Received query: Digital economy
+2025-01-01 15:26:11,192 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 15:26:11,194 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 15:26:11,194 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 15:26:11,198 - INFO - Use pytorch device_name: cpu
+2025-01-01 15:26:11,198 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 15:26:12,220 - INFO - FAISS search distances: [0.33819208 0.36479503 0.41168544 0.425955   0.42876694 0.43146366]
+2025-01-01 15:26:12,220 - INFO - FAISS search indices: [409 412 452 414 422 413]
+2025-01-01 15:26:12,220 - INFO - Returning 6 results to the query.
+2025-01-01 15:26:12,221 - INFO - Received query: Digital transformation
+2025-01-01 15:26:12,222 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 15:26:12,223 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 15:26:12,223 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 15:26:12,224 - INFO - Use pytorch device_name: cpu
+2025-01-01 15:26:12,226 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 15:26:13,126 - INFO - FAISS search distances: [0.37102154 0.50801563 0.5765916  0.7336203  0.7823243  0.7860054 ]
+2025-01-01 15:26:13,126 - INFO - FAISS search indices: [527 528 525 529 526 531]
+2025-01-01 15:26:13,127 - INFO - Returning 6 results to the query.
+2025-01-01 15:26:13,127 - INFO - Received query: E-commerce in China
+2025-01-01 15:26:13,128 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 15:26:13,129 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 15:26:13,129 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 15:26:13,131 - INFO - Use pytorch device_name: cpu
+2025-01-01 15:26:13,131 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 15:26:14,173 - INFO - FAISS search distances: [0.35016006 0.3747936  0.39099398 0.4450335  0.45077384 0.4646587 ]
+2025-01-01 15:26:14,173 - INFO - FAISS search indices: [457 455 462 465 466 456]
+2025-01-01 15:26:14,173 - INFO - Returning 6 results to the query.
+2025-01-01 15:26:17,242 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 15:26:22,340 - INFO - Provider 'OpenAI' generated a response of 500 tokens from an input of 11731 tokens.
+2025-01-01 15:26:42,884 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 15:26:42,912 - INFO - Provider 'OpenAI' generated a response of 105 tokens from an input of 12262 tokens.
+2025-01-01 15:26:42,912 - INFO - Received query: Claude Shannon
+2025-01-01 15:26:42,914 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 15:26:42,916 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 15:26:42,916 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 15:26:42,918 - INFO - Use pytorch device_name: cpu
+2025-01-01 15:26:42,918 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 15:26:43,950 - INFO - FAISS search distances: [0.5877234  0.60965824 0.64361787 0.6762372  0.6840662  0.6998385 ]
+2025-01-01 15:26:43,950 - INFO - FAISS search indices: [ 2  1 36  0 35 32]
+2025-01-01 15:26:43,950 - INFO - Returning 6 results to the query.
+2025-01-01 15:26:43,951 - INFO - Received query: Danny Hillis
+2025-01-01 15:26:43,952 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 15:26:43,953 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 15:26:43,953 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 15:26:43,956 - INFO - Use pytorch device_name: cpu
+2025-01-01 15:26:43,957 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 15:26:45,232 - INFO - FAISS search distances: [0.8688258  0.94015586 0.9661965  0.97341996 1.0806153  1.0981891 ]
+2025-01-01 15:26:45,232 - INFO - FAISS search indices: [52 54 53 57 60 56]
+2025-01-01 15:26:45,232 - INFO - Returning 6 results to the query.
+2025-01-01 15:26:45,233 - INFO - Received query: Eric Hoffer
+2025-01-01 15:26:45,233 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 15:26:45,234 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 15:26:45,234 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 15:26:45,236 - INFO - Use pytorch device_name: cpu
+2025-01-01 15:26:45,236 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 15:26:46,260 - INFO - FAISS search distances: [0.68709934 0.7094958  0.7759131  0.79347235 0.8066049  0.80867934]
+2025-01-01 15:26:46,260 - INFO - FAISS search indices: [810 800 801 806 803 808]
+2025-01-01 15:26:46,260 - INFO - Returning 6 results to the query.
+2025-01-01 15:26:46,261 - INFO - Received query: Walmart
+2025-01-01 15:26:46,262 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 15:26:46,263 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 15:26:46,263 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 15:26:46,265 - INFO - Use pytorch device_name: cpu
+2025-01-01 15:26:46,265 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 15:26:47,225 - INFO - FAISS search distances: [0.7305796  0.8602165  0.8603254  0.91294837 0.9172344  0.91783965]
+2025-01-01 15:26:47,225 - INFO - FAISS search indices: [158 167 214 108 151 150]
+2025-01-01 15:26:47,225 - INFO - Returning 6 results to the query.
+2025-01-01 15:26:47,226 - INFO - Received query: Amazon (company)
+2025-01-01 15:26:47,227 - INFO - Loaded 819 chunks from chunks.pkl.
+2025-01-01 15:26:47,228 - INFO - Loaded FAISS index from faiss_index.bin.
+2025-01-01 15:26:47,228 - INFO - Loaded SentenceTransformer model: all-MiniLM-L6-v2.
+2025-01-01 15:26:47,230 - INFO - Use pytorch device_name: cpu
+2025-01-01 15:26:47,230 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-01 15:26:48,275 - INFO - FAISS search distances: [0.51597905 0.5399059  0.54984874 0.57152635 0.57954466 0.58094275]
+2025-01-01 15:26:48,275 - INFO - FAISS search indices: [276 275 301 268 293 279]
+2025-01-01 15:26:48,275 - INFO - Returning 6 results to the query.
+2025-01-01 15:26:49,396 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-01-01 15:26:57,138 - INFO - Provider 'OpenAI' generated a response of 500 tokens from an input of 16999 tokens.
